@@ -23,7 +23,7 @@
   <div class="bg">
     <div style="height:8%"></div>
         <div class="d-flex justify-content-center">
-          <h4><p class="text-primary"><b>인스타그램 엔터 넣기90 :)</b></p></h4>
+          <h4><p class="text-primary"><b>인스타그램 엔터 넣기0 :)</b></p></h4>
         </div>
     <div class="d-flex justify-content-center">
       <div class="md-form mb-4 pink-textarea active-pink-textarea-2">
@@ -52,50 +52,56 @@
       var n=str.replace(/(?:\r\n|\r|\n)/g,'\u00a0\u00a0\u00a0\n');
       document.getElementById("myinput").value=n;
 
-      var oldContentEditable = document.getElementById("myinput").contentEditable,
-          oldReadOnly = document.getElementById("myinput").readOnly,
-          range = document.getElementById("myinput").createRange();
-
-      document.getElementById("myinput").contentEditable = true;
-      document.getElementById("myinput").readOnly = false;
-      range.selectNodeContents(document.getElementById("myinput"));
-
-      var s = window.getSelection();
-      s.removeAllRanges();
-      s.addRange(range);
-
-      document.getElementById("myinput").setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
-
-      document.getElementById("myinput").contentEditable = oldContentEditable;
-      document.getElementById("myinput").readOnly = oldReadOnly;
-
+      var $input = $('myinput');
+      $input.val(result);
+      if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
+        var el = $input.get(0);
+        var editable = el.contentEditable;
+        var readOnly = el.readOnly;
+        el.contentEditable = true;
+        el.readOnly = false;
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        el.setSelectionRange(0, 999999);
+        el.contentEditable = editable;
+        el.readOnly = readOnly;
+      } else {
+        $input.select();
+      }
       document.execCommand('copy');
       alert("변환 후 복사되었습니다 :)");
+      $input.blur();
     }
     </script>
 
 
 <!--
-function iosCopyToClipboard(el) {
-    var oldContentEditable = document.getElementById("myinput").contentEditable,
-        oldReadOnly = document.getElementById("myinput").readOnly,
-        range = document.getElementById("myinput").createRange();
+var $input = $('myinput');
+$input.val(result);
+if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
+  var el = $input.get(0);
+  var editable = el.contentEditable;
+  var readOnly = el.readOnly;
+  el.contentEditable = true;
+  el.readOnly = false;
+  var range = document.createRange();
+  range.selectNodeContents(el);
+  var sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+  el.setSelectionRange(0, 999999);
+  el.contentEditable = editable;
+  el.readOnly = readOnly;
+} else {
+  $input.select();
+}
+document.execCommand('copy');
+alert("변환 후 복사되었습니다 :)");
+$input.blur();
 
-    document.getElementById("myinput").contentEditable = true;
-    document.getElementById("myinput").readOnly = false;
-    range.selectNodeContents(document.getElementById("myinput"));
-
-    var s = window.getSelection();
-    s.removeAllRanges();
-    s.addRange(range);
-
-    document.getElementById("myinput").setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
-
-    document.getElementById("myinput").contentEditable = oldContentEditable;
-    document.getElementById("myinput").readOnly = oldReadOnly;
-
-    document.execCommand('copy');
-    alert("변환 후 복사되었습니다 :)");
 }
 -->
 
