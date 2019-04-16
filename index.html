@@ -23,7 +23,7 @@
   <div class="bg">
     <div style="height:8%"></div>
         <div class="d-flex justify-content-center">
-          <h4><p class="text-primary"><b>인스타그램 엔터 넣기100 :)</b></p></h4>
+          <h4><p class="text-primary"><b>인스타그램 엔터 넣기90 :)</b></p></h4>
         </div>
     <div class="d-flex justify-content-center">
       <div class="md-form mb-4 pink-textarea active-pink-textarea-2">
@@ -52,22 +52,22 @@
       var n=str.replace(/(?:\r\n|\r|\n)/g,'\u00a0\u00a0\u00a0\n');
       document.getElementById("myinput").value=n;
 
-      var oldContentEditable = myinput.contentEditable,
-          oldReadOnly = myinput.readOnly,
-          range = document.getElementById("myinput");
+      var oldContentEditable = document.getElementById("myinput").contentEditable,
+          oldReadOnly = document.getElementById("myinput").readOnly,
+          range = document.getElementById("myinput").createRange();
 
-      myinput.contentEditable = true;
-      myinput.readOnly = false;
-      range = document.getElementById("myinput");
+      document.getElementById("myinput").contentEditable = true;
+      document.getElementById("myinput").readOnly = false;
+      range.selectNodeContents(document.getElementById("myinput"));
 
       var s = window.getSelection();
       s.removeAllRanges();
       s.addRange(range);
 
-      myinput.setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
+      document.getElementById("myinput").setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
 
-      myinput.contentEditable = oldContentEditable;
-      myinput.readOnly = oldReadOnly;
+      document.getElementById("myinput").contentEditable = oldContentEditable;
+      document.getElementById("myinput").readOnly = oldReadOnly;
 
       document.execCommand('copy');
       alert("변환 후 복사되었습니다 :)");
@@ -76,23 +76,23 @@
 
 
 <!--
-function changeenter() {
-    var oldContentEditable = myinput.contentEditable,
-        oldReadOnly = myinput.readOnly,
-        range = document.getElementById("myinput");
+function iosCopyToClipboard(el) {
+    var oldContentEditable = document.getElementById("myinput").contentEditable,
+        oldReadOnly = document.getElementById("myinput").readOnly,
+        range = document.getElementById("myinput").createRange();
 
-    myinput.contentEditable = true;
-    myinput.readOnly = false;
-    range = document.getElementById("myinput");
+    document.getElementById("myinput").contentEditable = true;
+    document.getElementById("myinput").readOnly = false;
+    range.selectNodeContents(document.getElementById("myinput"));
 
     var s = window.getSelection();
     s.removeAllRanges();
     s.addRange(range);
 
-    myinput.setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
+    document.getElementById("myinput").setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
 
-    myinput.contentEditable = oldContentEditable;
-    myinput.readOnly = oldReadOnly;
+    document.getElementById("myinput").contentEditable = oldContentEditable;
+    document.getElementById("myinput").readOnly = oldReadOnly;
 
     document.execCommand('copy');
     alert("변환 후 복사되었습니다 :)");
