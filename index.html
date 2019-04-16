@@ -33,7 +33,7 @@
 </textarea>
   </form>
 <div class="text-center">
-        <button type="button" value="copy" onclick="changeenter('.myinput')" class="btn peach-gradient btn-sm"><font color=white>COPY</font></button>
+        <button type="button" value="copy" onclick="changeenter()" class="btn peach-gradient btn-sm"><font color=white>COPY</font></button>
         <button type="button" class="btn purple-gradient btn-sm" onclick="window.open('http://instagram.com')"><font color=white>INSTAGRAM</font></button>
       </div>
 
@@ -47,16 +47,43 @@
 
   <!-- SCRIPTS -->
   <script type="text/javascript">
-    function changeenter(){
-      var frm = document.instatext;
-      frm.text1.value = frm.text1.value.replace(/(?:\r\n|\r|\n)/g,'\u00a0\n');
+  function copyToClipboard(el) {
 
+      // resolve the element
+      el = (typeof el === 'string') ? document.querySelector(el) : el;
 
-      var copyText = document.getElementById("myinput");
-      copyText.select();
-      document.execCommand("copy");
-      alert("변환 후 복사되었습니다 :)");
-    }
+      // handle iOS as a special case
+      if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
+
+          // save current contentEditable/readOnly status
+          var editable = el.contentEditable;
+          var readOnly = el.readOnly;
+
+          // convert to editable with readonly to stop iOS keyboard opening
+          el.contentEditable = true;
+          el.readOnly = true;
+
+          // create a selectable range
+          var range = document.createRange();
+          range.selectNodeContents(el);
+
+          // select the range
+          var selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          el.setSelectionRange(0, 999999);
+
+          // restore contentEditable/readOnly to original state
+          el.contentEditable = editable;
+          el.readOnly = readOnly;
+      }
+      else {
+          el.select();
+      }
+
+      // execute copy command
+      document.execCommand('copy');
+  }
     </script>
 
 
