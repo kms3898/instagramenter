@@ -47,55 +47,19 @@
 
   <!-- SCRIPTS -->
   <script type="text/javascript">
-    function changeenter(text1){
+    function changeenter(){
       var str=document.getElementById("myinput").value;
       var n=str.replace(/(?:\r\n|\r|\n)/g,'\u00a0\u00a0\u00a0\u00a0\u00a0\n');
       document.getElementById("myinput").value=n;
 
-      var oldContentEditable = text1.contentEditable,
-          oldReadOnly = text1.readOnly,
-          range = document.createRange();
-
-      text1.contentEditable = true;
-      text1.readOnly = false;
-      range.selectNodeContents(text1);
-
-      var s = window.getSelection();
-      s.removeAllRanges();
-      s.addRange(range);
-
-      text1.setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
-
-      text1.contentEditable = oldContentEditable;
-      text1.readOnly = oldReadOnly;
-
-      document.execCommand('copy');
+      var copyText = document.getElementById("myinput");
+      copyText.select();
+      document.execCommand("copy");
       alert("변환 후 복사되었습니다 :)");
     }
     </script>
 
-<!--
-    unction iosCopyToClipboard(el) {
-        var oldContentEditable = text1.contentEditable,
-            oldReadOnly = text1.readOnly,
-            range = document.createRange();
 
-        text1.contentEditable = true;
-        text1.readOnly = false;
-        range.selectNodeContents(text1);
-
-        var s = window.getSelection();
-        s.removeAllRanges();
-        s.addRange(range);
-
-        text1.setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
-
-        text1.contentEditable = oldContentEditable;
-        text1.readOnly = oldReadOnly;
-
-        document.execCommand('copy');
-    }
--->
 
 
     <style type="text/css">
