@@ -23,7 +23,7 @@
   <div class="bg">
     <div style="height:8%"></div>
         <div class="d-flex justify-content-center">
-          <h4><p class="text-primary"><b>인스타그램 엔터 넣기2 :)</b></p></h4>
+          <h4><p class="text-primary"><b>인스타그램 엔터 넣기3 :)</b></p></h4>
         </div>
     <div class="d-flex justify-content-center">
       <div class="md-form mb-4 pink-textarea active-pink-textarea-2">
@@ -47,30 +47,49 @@
 
   <!-- SCRIPTS -->
   <script type="text/javascript">
-  function changeenter() {
-      var oldContentEditable = myinput.contentEditable,
-          oldReadOnly = myinput.readOnly,
+  function changeenter(textarea) {
+      var oldContentEditable = textarea.contentEditable,
+          oldReadOnly = textarea.readOnly,
           range = document.createRange();
 
-      myinput.contentEditable = true;
-      myinput.readOnly = false;
-      range.selectNodeContents(myinput);
+      textarea.contentEditable = true;
+      textarea.readOnly = false;
+      range.selectNodeContents(textarea);
 
       var s = window.getSelection();
       s.removeAllRanges();
       s.addRange(range);
 
-      myinput.setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
+      textarea.setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
 
-      myinput.contentEditable = oldContentEditable;
-      myinput.readOnly = oldReadOnly;
+      textarea.contentEditable = oldContentEditable;
+      textarea.readOnly = oldReadOnly;
 
       document.execCommand('copy');
   }
     </script>
 
 
+    function changeenter(textarea) {
+        var oldContentEditable = textarea.contentEditable,
+            oldReadOnly = textarea.readOnly,
+            range = document.createRange();
 
+        textarea.contentEditable = true;
+        textarea.readOnly = false;
+        range.selectNodeContents(textarea);
+
+        var s = window.getSelection();
+        s.removeAllRanges();
+        s.addRange(range);
+
+        textarea.setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
+
+        textarea.contentEditable = oldContentEditable;
+        textarea.readOnly = oldReadOnly;
+
+        document.execCommand('copy');
+    }
 
 
 
