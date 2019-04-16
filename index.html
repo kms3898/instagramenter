@@ -47,7 +47,7 @@
 
   <!-- SCRIPTS -->
   <script type="text/javascript">
-    function changeenter(){
+    function changeenter(text1){
       var str=document.getElementById("myinput").value;
       var n=str.replace(/(?:\r\n|\r|\n)/g,'\u00a0\u00a0\u00a0\u00a0\u00a0\n');
       document.getElementById("myinput").value=n;
