@@ -23,7 +23,7 @@
   <div class="bg">
     <div style="height:8%"></div>
         <div class="d-flex justify-content-center">
-          <h4><p class="text-primary"><b>인스타그램 엔터 넣기1 :)</b></p></h4>
+          <h4><p class="text-primary"><b>인스타그램 엔터 넣기4 :)</b></p></h4>
         </div>
     <div class="d-flex justify-content-center">
       <div class="md-form mb-4 pink-textarea active-pink-textarea-2">
@@ -56,7 +56,7 @@
       	if (document.body.createTextRange) {
               // IE
               var textRange = document.body.createTextRange();
-              textRange.moveToElementText();
+              textRange.moveToElementText(el);
               textRange.select();
               textRange.execCommand("Copy");
       		alert("변환 후 복사되었습니다 :)");
@@ -90,9 +90,7 @@
       				alert("Ctrl+C를 눌러 복사해주세요 :)");
       		}
           }
-      } // end function select_all_and_copy(el)
-
-    }
+      }
     </script>
 
 
