@@ -47,7 +47,7 @@
 
   <!-- SCRIPTS -->
   <script type="text/javascript">
-    function changeenter("myinput"){
+    function changeenter(){
       var str=document.getElementById("myinput").value;
       var n=str.replace(/(?:\r\n|\r|\n)/g,'\u00a0\u00a0\u00a0\u00a0\u00a0\n');
       document.getElementById("myinput").value=n;
@@ -58,40 +58,6 @@
       alert("변환 후 복사되었습니다 :)");
     }
     </script>
-
-
-
-    function iosCopyToClipboard(el) {
-        var oldContentEditable = el.contentEditable,
-            oldReadOnly = el.readOnly,
-            range = document.createRange();
-
-        el.contentEditable = true;
-        el.readOnly = false;
-        range.selectNodeContents(el);
-
-        var s = window.getSelection();
-        s.removeAllRanges();
-        s.addRange(range);
-
-        el.setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
-
-        el.contentEditable = oldContentEditable;
-        el.readOnly = oldReadOnly;
-
-        document.execCommand('copy');
-    }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
