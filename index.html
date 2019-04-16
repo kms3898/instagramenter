@@ -28,12 +28,12 @@
     <div class="d-flex justify-content-center">
       <div class="md-form mb-4 pink-textarea active-pink-textarea-2">
         <form name="instatext">
-            <label for="instatext">내용 작성 후 copy 버튼을 눌러주세요</label>
+            <label for="instatext">내용 작성 후 CHANGE 버튼을 눌러주세요</label>
 <textarea name="text1" id="myinput" class="md-textarea form-control" value="string" cols="25" rows="14">
 </textarea>
   </form>
 <div class="text-center">
-        <button type="button" value="copy" onclick="changeenter()" class="btn peach-gradient btn-sm"><font color=white>COPY</font></button>
+        <button type="button" value="copy" onclick="changeenter()" class="btn peach-gradient btn-sm"><font color=white>CHANGE</font></button>
         <button type="button" class="btn purple-gradient btn-sm" onclick="window.open('http://instagram.com')"><font color=white>INSTAGRAM</font></button>
       </div>
 
@@ -55,7 +55,7 @@
       var copyText = document.getElementById("myinput");
       copyText.select();
       document.execCommand("copy");
-      alert("변환 후 복사되었습니다 :)");
+      alert("변환 되었습니다 :)");
     }
     </script>
 
