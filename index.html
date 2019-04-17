@@ -60,7 +60,7 @@
 <script type="text/javascript">
     function changeenter(){
       var str = document.getElementById("myinput").value;
-      var n = str.replace(/<br\s*[\/]?>/gi,'\r\n');
+      var n = str.replace(/<br>\s*[\/]?>/gi,'\r\n');
       document.getElementById("myinput").value=n;
 
       var oldContentEditable = myinput.contentEditable,
