@@ -61,8 +61,7 @@
     function changeenter(){
       var str = document.getElementById("myinput").value;
       var n = str.replace(/<br\s*[\/]?>/gi,'\u3000\u3000\r\n');
-      var m = str.replace(\u3000,'');
-      document.getElementById("myinput").value=m;
+      document.getElementById("myinput").value=n;
 
       var oldContentEditable = myinput.contentEditable,
           oldReadOnly = myinput.readOnly,
