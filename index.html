@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="keywords" content="instagram, add spaces in instagram, instagram line break, instagram enter, instagram space, instagram line break generator, instagram Captions & Bios">
-  <meta name="description" content="How to create Spaces in Instagram Captions & Bios, Make Line Breaks in Your Instagram Caption, Instagram enter.">
+  <meta name="description" content="Create Spaces in Instagram Captions & Bios, Make Line Breaks in Your Instagram Caption, Instagram enter.">
   <meta name="author" content="Fleuret">
 
   <meta property="og:type" content="website">
@@ -61,6 +61,8 @@
     function changeenter(){
       var str = document.getElementById("myinput").value;
       var n = str.replace(/<br\s*[\/]?>/gi,'\r\n');
+      var n = str.replace(/^\s/gm, '\r\n');
+      var n = str.replace(/\r\n$/g, '\r\n');
       document.getElementById("myinput").value=n;
 
       var oldContentEditable = myinput.contentEditable,
