@@ -39,7 +39,7 @@
     <div class="d-flex justify-content-center">
       <div class="md-form mb-4 pink-textarea active-pink-textarea-2">
         <form name="instatext">
-            <label for="instatext">내용 작성 후 COPY 버튼을 눌러주세요</style></label>
+            <label for="instatext">내용 작성 후 COPY 버튼을 눌러주세요111</style></label>
 <textarea name="text1" id="myinput" class="md-textarea form-control" value="string" cols="25" rows="14">
 </textarea>
           </form>
@@ -59,16 +59,35 @@
   <!-- SCRIPTS -->
 <script type="text/javascript">
     function changeenter(){
-      var str=document.getElementById("myinput").value;
-      var n=str.replace(/(?:\r\n|\r|\n)/g,'\u00a0\u00a0\u00a0\u00a0\u00a0\n');
+      var str = document.getElementById("myinput").value;
+      var n = str.replace(/(?:\r\n|\r|\n)/g,'\u00a0\u00a0\u00a0\u00a0\u00a0\n');
       document.getElementById("myinput").value=n;
 
-      var copyText = document.getElementById("myinput");
-      copyText.select();
-      document.execCommand("copy");
-      alert("변환 후 복사 되었습니다 :)");
-    }
+      var oldContentEditable = document.getElementById("myinput").contentEditable,
+          oldReadOnly = document.getElementById("myinput").readOnly,
+          range = document.createRange();
+
+      myinput.contentEditable = true;
+      myinput.readOnly = false;
+      range.selectNodeContents();
+
+      var s = window.getSelection();
+      s.removeAllRanges();
+      s.addRange(range);
+
+      myinput.setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
+
+      myinput.contentEditable = oldContentEditable;
+      myinput.readOnly = oldReadOnly;
+
+      document.execCommand('copy');
+  }
 </script>
+
+
+
+
+
 
 
 
