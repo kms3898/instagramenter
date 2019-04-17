@@ -34,12 +34,12 @@
 <body>
     <div style="height:8%"></div>
         <div class="d-flex justify-content-center">
-          <h4><p class="text-primary"><b>인스타그램 엔터 넣기:)</b></p></h4>
+          <h4><p class="text-primary"><b>인스타그램 엔터 넣기1111111111:)</b></p></h4>
         </div>
     <div class="d-flex justify-content-center">
       <div class="md-form mb-4 pink-textarea active-pink-textarea-2">
         <form name="instatext">
-            <label for="instatext">내용 작성 후 COPY 버튼을 눌러주세요111</style></label>
+            <label for="instatext">내용 작성 후 COPY 버튼을 눌러주세요</style></label>
 <textarea name="text1" id="myinput" class="md-textarea form-control" value="string" cols="25" rows="14">
 </textarea>
           </form>
@@ -63,13 +63,13 @@
       var n = str.replace(/(?:\r\n|\r|\n)/g,'\u00a0\u00a0\u00a0\u00a0\u00a0\n');
       document.getElementById("myinput").value=n;
 
-      var oldContentEditable = document.getElementById("myinput").contentEditable,
-          oldReadOnly = document.getElementById("myinput").readOnly,
+      var oldContentEditable = myinput.contentEditable,
+          oldReadOnly = myinput.readOnly,
           range = document.createRange();
 
       myinput.contentEditable = true;
       myinput.readOnly = false;
-      range.selectNodeContents();
+      range.selectNodeContents(myinput);
 
       var s = window.getSelection();
       s.removeAllRanges();
@@ -83,10 +83,6 @@
       document.execCommand('copy');
   }
 </script>
-
-
-
-
 
 
 
