@@ -63,6 +63,8 @@
       var n = str.replace(/(?:\r\n|\r|\n)/g,"\u2063\n");
       document.getElementById("myinput").value=n;
 
+      if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
+
       var oldContentEditable = myinput.contentEditable,
           oldReadOnly = myinput.readOnly,
           range = document.createRange();
@@ -79,13 +81,16 @@
 
       myinput.contentEditable = oldContentEditable;
       myinput.readOnly = oldReadOnly;
+    }
+    else{
+      var copyText = document.getElementById("myinput")
+      copyText.select();
+    }
 
       document.execCommand('copy');
       alert("Copy complete. Paste in the Instagram. :)");
   }
 </script>
-
-
 
 
 
